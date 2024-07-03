@@ -1,8 +1,17 @@
-//
-//  AllVillages.swift
-//  Naruto
-//
-//  Created by user on 03/07/24.
-//
+
+
+
 
 import Foundation
+
+// MARK: - AllVillages
+struct AllVillages: Codable {
+    let villages: [Village]
+}
+
+// MARK: - Village
+struct Village: Codable {
+    let id: Int
+    let name: String
+    let characters: [Character]
+}

@@ -14,16 +14,16 @@ class VideoCollectionViewCell: UICollectionViewCell {
   private let imageOfView: UIImageView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.contentMode = .scaleAspectFill
+    $0.backgroundColor = .systemGray6
     $0.clipsToBounds = true
     return $0
   }(UIImageView())
 
   private let titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.font = .systemFont(ofSize: 16, weight: .semibold)
+    $0.font = .marker24()
     $0.textColor = .label
     $0.textAlignment = .center
-    $0.numberOfLines = 2
     return $0
   }(UILabel())
 
@@ -50,10 +50,10 @@ class VideoCollectionViewCell: UICollectionViewCell {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    contentView.backgroundColor = .systemBackground
-    contentView.layer.shadowColor = UIColor.black.cgColor
-    contentView.layer.shadowRadius = 4
-    contentView.layer.shadowOffset = CGSize(width: 4, height: 0)
+    self.backgroundColor = .systemBackground
+    self.layer.shadowColor = UIColor.black.cgColor
+    self.layer.shadowRadius = 4
+    self.layer.shadowOffset = CGSize(width: 4, height: 0)
   }
   
 }
@@ -67,9 +67,9 @@ extension VideoCollectionViewCell {
       imageOfView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
       imageOfView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
 
-      titleLabel.topAnchor.constraint(equalTo: imageOfView.bottomAnchor, constant: 5),
-      titleLabel.leftAnchor.constraint(equalTo: imageOfView.leftAnchor, constant: 25),
-      titleLabel.rightAnchor.constraint(equalTo: imageOfView.rightAnchor, constant: -25),
+      titleLabel.topAnchor.constraint(equalTo: imageOfView.bottomAnchor, constant: 10),
+      titleLabel.leftAnchor.constraint(equalTo: imageOfView.leftAnchor, constant: 10),
+      titleLabel.rightAnchor.constraint(equalTo: imageOfView.rightAnchor, constant: -10),
     ])
   }
 }

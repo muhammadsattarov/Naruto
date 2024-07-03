@@ -7,30 +7,26 @@
 
 import Foundation
 
-class Service {
+protocol Networking {
+  func request(url: String, completion: @escaping (Data?, Error?) -> Void)
+}
 
-  static let shared = Service()
+class NetworkService: Networking {
 
-  func getAllCharacters(url: String, completion: @escaping (Result<[Character], Error>) -> Void) {
+  func request(url: String, completion: @escaping (Data?, Error?) -> Void) {
     guard let url = URL(string: url) else { return }
-
     let request = URLRequest(url: url)
-
-    let task = URLSession.shared.dataTask(with: request) { data, _, error in
-      guard let data = data, error == nil else {
-        return
-      }
-      let decoder = JSONDecoder()
-      do {
-        let result = try decoder.decode(Characters.self, from: data)
-        completion(.success(result.characters))
-      } catch {
-        completion(.failure(error))
-      }
-    }
+    let task = createDataTask(from: request, completion: completion)
     task.resume()
   }
 
-  
+  func createDataTask(from request: URLRequest,
+                      completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
+    return URLSession.shared.dataTask(with: request) { data, _, error in
+      DispatchQueue.main.async {
+        completion(data, error)
+      }
+    }
+  }
 }
 

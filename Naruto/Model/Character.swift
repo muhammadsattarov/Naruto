@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+// MARK: - Character
+struct Character: Codable {
+    let id: Int
+    let name: String
+    let images: [String]
+}

@@ -31,7 +31,7 @@ class VideoViewController: UIViewController {
     view.addSubview(collectionView)
     collectionView.delegate = self
     collectionView.dataSource = self
-    navigationItem.title = "Heroes"
+    navigationItem.title = "History of Heroes"
     navigationItem.largeTitleDisplayMode = .always
     navigationController?.navigationBar.prefersLargeTitles = true
   }

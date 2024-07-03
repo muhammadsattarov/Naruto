@@ -1,8 +1,13 @@
 //
-//  Characters.swift
-//  Naruto
+// // This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  Created by user on 23/06/24.
-//
+//   let characters = try? JSONDecoder().decode(Characters.self, from: jsonData)
 
 import Foundation
+
+// MARK: - Characters
+struct Characters: Codable {
+    let characters: [Character]
+}
+

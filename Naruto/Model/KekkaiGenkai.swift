@@ -16,12 +16,5 @@ struct KekkaiGenkai: Codable {
 struct Kekkeigenkai: Codable {
     let id: Int
     let name: String
-    let characters: [KekkeigenkaiCharacter]
-}
-
-// MARK: - Character
-struct KekkeigenkaiCharacter: Codable {
-    let id: Int
-    let name: String
-    let images: [String]
+    let characters: [Character]
 }

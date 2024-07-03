@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+// MARK: - Akatsuki
+struct Akatsuki: Codable {
+    let akatsuki: [Character]
+}
